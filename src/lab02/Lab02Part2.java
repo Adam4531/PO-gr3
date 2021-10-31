@@ -73,7 +73,7 @@ public class Lab02Part2 {
     private static void generuj(int[] tab, int n, int minWartosc, int maxWartosc) {
         Random random = new Random();
         for (int i = 0; i < n; i++) {
-            tab[i] = random.nextInt(maxWartosc + 1 - minWartosc) - minWartosc;
+            tab[i] = random.nextInt(maxWartosc + 1 - minWartosc) + minWartosc;
         }
     }
 
@@ -127,12 +127,12 @@ public class Lab02Part2 {
         return count;
     }
 
-    private static int ileMaksymalnych(int[] tab) {
+    private static int ileMaksymalnych(int[] tab) { //FIXME ile maksymalnych tych samych liczb
         int count = 0;
         int max = 0;
         for (int element : tab) {
             if (element > max) {
-                count++;
+                count++;  //jak kolejna liczba będzie przebijać element to count też będzie podbijać
                 max = element;
             } else if (element == max) {
                 count++;
@@ -190,7 +190,6 @@ public class Lab02Part2 {
 
     private static void odwrocFragment(int[] tab) {
         Scanner scanner = new Scanner(System.in);
-        boolean isIncorrectSize = true;
         int lewy, prawy;
 
         System.out.println("Podaj lewy ");
@@ -199,8 +198,8 @@ public class Lab02Part2 {
         System.out.println("Podaj prawy ");
         prawy = scanner.nextInt();
 
-        int pom, rozm = (prawy - lewy) / 2 + lewy;
-        for (int i = lewy; i <= rozm; i++) {
+        int pom, srodek_wycinka = (prawy - lewy) / 2 + lewy;
+        for (int i = lewy; i <= srodek_wycinka; i++) {
             pom = tab[i];
             tab[i] = prawy;
             tab[prawy] = pom;

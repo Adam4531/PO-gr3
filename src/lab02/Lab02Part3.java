@@ -17,11 +17,11 @@ public class Lab02Part3 {
         int[][] matrixA = matrixMaker(m,n);
         int[][] matrixB = matrixMaker(n,k);
 
-        matrixToString(matrixA);
-        matrixToString(matrixB);
+        matrixPrint(matrixA);
+        matrixPrint(matrixB);
 
         int[][] matrixC = multiply(matrixA,matrixB);
-        matrixToString(matrixC);
+        matrixPrint(matrixC);
     }
 
     static int[][] matrixMaker(int m, int n){
@@ -49,7 +49,7 @@ public class Lab02Part3 {
         return a;
     }
 
-    static void matrixToString(int[][] matrix){
+    static void matrixPrint(int[][] matrix){
         for (int[] row : matrix) {
             for (int cell : row) {
                 System.out.print(cell + " ");
