@@ -12,7 +12,7 @@ public class Lab03Part5 {
         System.out.print("Podaj swoj poczatkowy kapital: ");
         BigDecimal k = new BigDecimal(String.valueOf(scanner.nextBigDecimal()));
 
-        System.out.print("Podaj stope procentowa(np. jak 1% wpisz 1, 2% to 2): "); //0.02
+        System.out.print("Podaj stope procentowa(np. jak 1% wpisz 1, 2% to 2): ");
         BigDecimal b = new BigDecimal(String.valueOf(scanner.nextBigDecimal()));
 
         System.out.print("Podaj okres oszczedzania(w latach): ");
@@ -21,7 +21,7 @@ public class Lab03Part5 {
 
         BigDecimal sumOfSaving = k;
         for (BigInteger i = BigInteger.ONE; i.compareTo(n) <= 0; i = i.add(BigInteger.ONE)) {
-            if (b.compareTo(BigDecimal.valueOf(9)) > 0) {
+            if (b.compareTo(BigDecimal.valueOf(10)) > 0) {    // 9.compareTo(9) = 1  5.compareTo(10) = -1
                 BigDecimal sumOfYear = sumOfSaving.multiply(new BigDecimal("0." + b));
                 System.out.println("Adding " + sumOfYear.setScale(2,RoundingMode.FLOOR) + " of savings after: " + i + " year");
                 sumOfSaving = sumOfSaving.add(sumOfYear.setScale(2, RoundingMode.FLOOR));

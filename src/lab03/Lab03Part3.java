@@ -32,7 +32,7 @@ public class Lab03Part3 {
 
             for (Map.Entry<String, Integer> entry : wordMap.entrySet()) {
                 if (entry.getKey().equals(word)) {
-                    System.out.println("Wartość znaku '" + word + "' wynosi: " + entry.getValue());
+                    System.out.println("Wartość słowa '" + word + "' wynosi: " + entry.getValue());
                     break;
                 }
             }

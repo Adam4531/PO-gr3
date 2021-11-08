@@ -1,34 +1,76 @@
 package lab03;
 
-//TODO Add input Scanner to every function and check rest of functions
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Scanner;
+
 //Zadanie 1.
 public class Lab03Part1 {
 
     public static void main(String[] args) {
-//        Scanner scanner = new Scanner(System.in);
-        System.out.print("countChar:");
-        System.out.println(countChar("ala ma kota", 'a'));
+        Scanner scanner1 = new Scanner(System.in);
+        Scanner scanner2 = new Scanner(System.in);
+
+        System.out.println("countChar:");
+        System.out.print("Podaj napis: "); //ala ma kota ala
+        String sentence1 = scanner1.nextLine();
+        System.out.print("Podaj znak do znalezienia: "); //a
+        char c = scanner2.next().charAt(0);
+        System.out.println(countChar(sentence1, c));
         System.out.println();
 
         System.out.println("countSubStr:");
-        System.out.println(countSubStr("ala ma kota ala", "ala"));
+        System.out.print("Podaj napis: ");
+        String sentence2 = scanner1.nextLine();
+        System.out.print("Podaj substring do znalezienia: ");
+        String substr1 = scanner2.next();
+        System.out.println(countSubStr(sentence2, substr1));
         System.out.println();
 
         System.out.println("middle:");
-        System.out.println(middle("kosz"));
+        System.out.print("Podaj napis: ");
+        String sentence3 = scanner1.next();
+        System.out.println(middle(sentence3));
         System.out.println();
 
         System.out.println("repeat:");
-        System.out.println(repeat("ho", 3));
+        System.out.print("Podaj napis: ");
+        String sentence4 = scanner1.next();
+        System.out.print("Podaj liczbę powtórzeń: ");
+        int n = scanner1.nextInt();
+        System.out.println(repeat(sentence4, n));
         System.out.println();
 
         System.out.println("change: ");
-        System.out.println(change("Jakies Zdanie"));
+        System.out.print("Podaj napis: ");
+        String sentence5 = scanner1.next();
+        System.out.println(change(sentence5));
         System.out.println();
 
         System.out.println("nice:");
-        System.out.println(nice("JakiesSlowo"));
+        System.out.print("Podaj napis: ");
+        String sentence6 = scanner1.next();
+        System.out.println(nice(sentence6));
 
+        System.out.println("nice z seperatorem i ustawieniem interwału:");
+        System.out.print("Podaj napis: ");
+        String sentence7 = scanner1.next();
+        System.out.print("Podaj napis: ");
+        char seperator = scanner1.next().charAt(0);
+        System.out.print("Podaj napis: ");
+        int interval = scanner1.nextInt();
+        System.out.println(nice(sentence7,seperator,interval));
+
+        System.out.println("where:");
+        System.out.print("Podaj napis: ");
+        String sentence8 = scanner1.next();
+        System.out.print("Podaj substr: ");
+        String substr2 = scanner2.next();
+        System.out.println(Arrays.toString(where(sentence8,substr2)));
+
+        scanner1.close();
+        scanner2.close();
     }
 
     static int countChar(String str, char c) {
@@ -79,7 +121,7 @@ public class Lab03Part1 {
     }
 
     static int[] where(String str, String subStr) {
-        int[] indexArray = new int[0];
+        List<Integer> integerList = new ArrayList<>();
         int lastIndex = 0;
         int counter = 0;
 
@@ -87,12 +129,13 @@ public class Lab03Part1 {
             lastIndex = str.indexOf(subStr, lastIndex);
 
             if (lastIndex != -1) {
-                indexArray[counter] = lastIndex;
+                integerList.add(counter, lastIndex);
                 counter++;
                 lastIndex += subStr.length();
             }
         }
-        return indexArray;
+
+        return integerList.stream().mapToInt(i-> i).toArray();
     }
 
     static String change(String str){
