@@ -64,7 +64,7 @@ public class Lab04Part1 {
 
         System.out.println("where:");
         System.out.print("Podaj napis: ");
-        String sentence8 = scanner1.next();
+        String sentence8 = scanner1.nextLine();
         System.out.print("Podaj substr: ");
         String substr2 = scanner2.next();
         System.out.println(Arrays.toString(where(sentence8,substr2)));

@@ -21,7 +21,7 @@ public class Lab04Part5 {
 
         BigDecimal sumOfSaving = k;
         for (BigInteger i = BigInteger.ONE; i.compareTo(n) <= 0; i = i.add(BigInteger.ONE)) {
-            if (b.compareTo(BigDecimal.valueOf(10)) >= 0) {    // 9.compareTo(9) = 0,  5.compareTo(10) = -1, 10.compareTo(5) = 1
+            if (b.compareTo(BigDecimal.valueOf(10)) >= 0) {    // 9.compareTo(9) = 1  5.compareTo(10) = -1
                 BigDecimal sumOfYear = sumOfSaving.multiply(new BigDecimal("0." + b));
                 System.out.println("Adding " + sumOfYear.setScale(2,RoundingMode.FLOOR) + " of savings after: " + i + " year");
                 sumOfSaving = sumOfSaving.add(sumOfYear.setScale(2, RoundingMode.FLOOR));
