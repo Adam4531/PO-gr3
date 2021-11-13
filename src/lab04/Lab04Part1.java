@@ -185,6 +185,4 @@ public class Lab04Part1 {
         }
         return result.reverse().toString();
     }
-
-
 }

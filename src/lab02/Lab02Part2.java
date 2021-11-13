@@ -127,12 +127,12 @@ public class Lab02Part2 {
         return count;
     }
 
-    private static int ileMaksymalnych(int[] tab) { //FIXME ile maksymalnych tych samych liczb
+    private static int ileMaksymalnych(int[] tab) {
         int count = 0;
         int max = 0;
         for (int element : tab) {
             if (element > max) {
-                count++;  //jak kolejna liczba będzie przebijać element to count też będzie podbijać
+                count = 0;
                 max = element;
             } else if (element == max) {
                 count++;
