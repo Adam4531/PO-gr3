@@ -36,7 +36,7 @@ public class Lab05 {
         ArrayList<Integer> arrayList4 = new ArrayList<>(Arrays.asList(9, 7, 4, 9, 11));
 
         System.out.println("mergesorted:");
-        System.out.println(mergesorted(arrayList3,arrayList4));
+        System.out.println(mergesorted(arrayList3, arrayList4));
         System.out.println();
     }
 
@@ -83,8 +83,8 @@ public class Lab05 {
         int counterOfArray1 = 0;
         int counterOfArray2 = 0;
 
-        while (counterOfArray1 < array1.size() && counterOfArray2 < array2.size()){
-            if(array1.get(counterOfArray1) > array2.get(counterOfArray2)){
+        while (counterOfArray1 < array1.size() && counterOfArray2 < array2.size()) {
+            if (array1.get(counterOfArray1) > array2.get(counterOfArray2)) {
                 result.add(array2.get(counterOfArray2));
                 counterOfArray2++;
             } else {
@@ -93,16 +93,16 @@ public class Lab05 {
             }
         }
 
-        while (counterOfArray1 < array1.size()){
+        while (counterOfArray1 < array1.size()) {
             result.add(array1.get(counterOfArray1));
             counterOfArray1++;
         }
 
-        while (counterOfArray2 < array2.size()){
+        while (counterOfArray2 < array2.size()) {
             result.add(array2.get(counterOfArray2));
             counterOfArray2++;
         }
-        
+
         return result;
     }
 
@@ -119,14 +119,10 @@ public class Lab05 {
     }
 
     public static void reverse(ArrayList<Integer> array) {
-        if (array != null) {
-            for (int i = 0; i < array.size() / 2; i++) {
-                int temp = array.get(array.size() - (1 + i));
-                array.set(array.indexOf(temp), array.get(i));
-                array.set(i, temp);
-            }
-        } else {
-            throw new IllegalArgumentException("ArrayList nie może być null'em!");
+        for (int i = 0; i < array.size() / 2; i++) {
+            int temp = array.get(array.size() - (1 + i));
+            array.set(array.indexOf(temp), array.get(i));
+            array.set(i, temp);
         }
     }
 }
