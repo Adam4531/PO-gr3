@@ -75,44 +75,34 @@ public class Lab05 {
         return result;
     }
 
-    public static ArrayList<Integer> mergesorted(ArrayList<Integer> array1, ArrayList<Integer> array2) {//TODO mergesorted
+    public static ArrayList<Integer> mergesorted(ArrayList<Integer> array1, ArrayList<Integer> array2) {
         ArrayList<Integer> result = new ArrayList<>();
-
         Collections.sort(array1);
         Collections.sort(array2);
 
-        if (array1.size() > array2.size()) {
-            int temp = array1.get(0) > array2.get(0) ? array1.get(0): array2.get(0);
-            for (int i = 1; i < array1.size(); i++) {
-                if (array1.get(i) > array2.get(i)) {
-                    result.add(i - 1,temp);
-                    temp = array2.get(i);
-                } else {
-                    result.add(i - 1,temp);
-                    temp = array1.get(i);
-                }
-                if (array2.size() - 1 == i) {
-                    result.addAll(array2.subList(i + 1, array2.size()));
-                    return result;
-                }
-            }
-        } else {
-            int temp = array1.get(0) > array2.get(0) ? array2.get(0): array1.get(0);
-            for (int i = 1; i < array2.size(); i++) {
-                if (array1.get(i) > array2.get(i)) {
-                    result.add(i - 1,temp);
-                    temp = array2.get(i);
-                } else {
-                    result.add(i - 1,temp);
-                    temp = array1.get(i);
-                }
-                if (array1.size() - 1 == i) {
-                    result.addAll(array2.subList(i + 1, array2.size()));
-                    return result;
-                }
+        int counterOfArray1 = 0;
+        int counterOfArray2 = 0;
+
+        while (counterOfArray1 < array1.size() && counterOfArray2 < array2.size()){
+            if(array1.get(counterOfArray1) > array2.get(counterOfArray2)){
+                result.add(array2.get(counterOfArray2));
+                counterOfArray2++;
+            } else {
+                result.add(array1.get(counterOfArray1));
+                counterOfArray1++;
             }
         }
 
+        while (counterOfArray1 < array1.size()){
+            result.add(array1.get(counterOfArray1));
+            counterOfArray1++;
+        }
+
+        while (counterOfArray2 < array2.size()){
+            result.add(array2.get(counterOfArray2));
+            counterOfArray2++;
+        }
+        
         return result;
     }
 
