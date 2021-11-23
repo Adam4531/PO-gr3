@@ -5,16 +5,16 @@ import java.util.Arrays;
 public class IntegerSet {
 
     private boolean[] booleans;
-    private final static int size = 100;
+    private final static int size = 101;
 
     public IntegerSet() {
         booleans = new boolean[size];
     }
 
-    public static IntegerSet union(IntegerSet aIntegerSet1, IntegerSet aIntegerSet2){
+    public static IntegerSet union(IntegerSet aIntegerSet1, IntegerSet aIntegerSet2) {
         IntegerSet sum = new IntegerSet();
         for (int i = 1; i < size; i++) {
-            if(aIntegerSet1.booleans[i] || aIntegerSet2.booleans[i]){//aIntegerSet1.booleans[i] == true daje simplify warning
+            if (aIntegerSet1.booleans[i] || aIntegerSet2.booleans[i]) {//aIntegerSet1.booleans[i] == true daje simplify warning
                 sum.booleans[i] = true;
             }
         }
@@ -22,10 +22,10 @@ public class IntegerSet {
         return sum;
     }
 
-    public static IntegerSet intersection(IntegerSet aIntegerSet1, IntegerSet aIntegerSet2){
+    public static IntegerSet intersection(IntegerSet aIntegerSet1, IntegerSet aIntegerSet2) {
         IntegerSet product = new IntegerSet();
         for (int i = 1; i < size; i++) {
-            if (aIntegerSet1.booleans[i] && aIntegerSet2.booleans[i]){
+            if (aIntegerSet1.booleans[i] && aIntegerSet2.booleans[i]) {
                 product.booleans[i] = true;
             }
         }
@@ -33,50 +33,32 @@ public class IntegerSet {
         return product;
     }
 
-    public void insertElement(int element){
-        try{
-            elementIsNotInRange(element);
-        } catch (IllegalArgumentException e){
+    public void insertElement(int element) {
+        if(element >= 1 && element <= 100){
+            this.booleans[element] = true;
+        } else {
             System.out.println("Expected number in range <1;100> but was: " + element);
-        }
-
-        for (int i = 1; i < size; i++) {
-            if(element == i){
-                this.booleans[i] = true;
-            }
         }
     }
 
-    public void deleteElement(int element){
-        try{
-            elementIsNotInRange(element);
-        } catch (IllegalArgumentException e){
+    public void deleteElement(int element) {
+        if(element >= 1 && element <= 100){
+            this.booleans[element] = false;
+        } else {
             System.out.println("Expected number in range <1;100> but was: " + element);
-        }
-
-        for (int i = 1; i < size; i++) {
-            if (element == i){
-                this.booleans[i] = false;
-            }
         }
     }
 
     @Override
-    public String toString() {
+    public String toString() { //FIXME zmienić
         StringBuilder stringBuilder = new StringBuilder();
         for (int i = 1; i < size; i++) {
-            if(booleans[i]){
+            if (booleans[i]) {      //warning simplify
                 stringBuilder.append(i).append(" ");
             }
         }
 
         return stringBuilder.toString();
-    }
-
-    private static void elementIsNotInRange(int element){
-        if (element < 1 || element > 100){
-            throw new IllegalArgumentException();
-        }
     }
 
     @Override

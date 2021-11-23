@@ -5,12 +5,12 @@ import java.math.RoundingMode;
 
 public class RachunekBankowy {
 
-    static double rocznaStopaProcentowa = 0; //default value
+    static double rocznaStopaProcentowa;
 
     private BigDecimal saldo;
 
     public RachunekBankowy(BigDecimal aSaldo){
-        saldo = aSaldo;
+        this.saldo = aSaldo;
     }
 
     public void obliczMiesieczneOdsetki(){
