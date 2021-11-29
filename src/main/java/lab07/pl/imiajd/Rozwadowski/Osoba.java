@@ -12,11 +12,11 @@ public abstract class Osoba {
         rokUrodzenia = aRokUrodzenia;
     }
 
-    public String getNazwisko() {
+    public final String getNazwisko() {
         return nazwisko;
     }
 
-    public LocalDate getRokUrodzenia() {
+    public final LocalDate getRokUrodzenia() {
         return rokUrodzenia;
     }
 

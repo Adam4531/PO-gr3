@@ -11,10 +11,6 @@ public class Student extends Osoba {
         rok = aRok;
     }
 
-    public void learning(){
-        System.out.println("learning");
-    }
-
     public int getRok() {
         return rok;
     }
