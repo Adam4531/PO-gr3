@@ -31,7 +31,7 @@ public class Adres {
         }
     }
 
-    public boolean przed(Adres other){ //TODO refactoring
+    public boolean przed(Adres other){
         if(this.kod_pocztowy < other.kod_pocztowy){
             return true;
         } else {

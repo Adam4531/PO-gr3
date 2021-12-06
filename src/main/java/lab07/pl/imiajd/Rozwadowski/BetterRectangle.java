@@ -2,7 +2,7 @@ package lab07.pl.imiajd.Rozwadowski;
 
 import java.awt.*;
 
-public class BetterRectangle extends Rectangle {//TODO refactoring
+public class BetterRectangle extends Rectangle {
 
     public BetterRectangle(int width, int height) {
         super(width,height);

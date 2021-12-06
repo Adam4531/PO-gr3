@@ -6,6 +6,9 @@ import java.time.LocalDate;
 
 public class Lab07 {
     public static void main(String[] args) {
+//        String[] imiona = {"Jan", "Grzegorz"};
+
+
         //Adres test
         System.out.println("Adres:");
         Adres adres1 = new Adres("Warszawska","20","10","Gdańsk",1000);

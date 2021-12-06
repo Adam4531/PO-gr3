@@ -50,7 +50,7 @@ public class IntegerSet {
     }
 
     @Override
-    public String toString() { //FIXME zmienić
+    public String toString() {
         StringBuilder stringBuilder = new StringBuilder();
         for (int i = 1; i < size; i++) {
             if (booleans[i]) {      //warning simplify
