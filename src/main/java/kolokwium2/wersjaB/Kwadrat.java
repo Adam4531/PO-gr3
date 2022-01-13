@@ -13,10 +13,6 @@ public class Kwadrat extends Figura{
         return szerokosc;
     }
 
-    public void setSzerokosc(double aSzerokosc) {
-        szerokosc = aSzerokosc;
-    }
-
     @Override
     public boolean equals(Object aO) {
         if (this == aO) return true;
