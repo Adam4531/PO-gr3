@@ -4,7 +4,7 @@ public class Main {
     public static void main(String[] args) {
         Osoba kowalski = new Osoba("Kowalski");
         Osoba nowak1 = new Osoba("Nowak");
-        System.out.println("kowalski vs. nowak1: " + kowalski.compareTo(nowak1));   //ok
+        System.out.println("kowalski vs. nowak1: " + kowalski.compareTo(nowak1));
 
         Obywatel nowak2 = new Obywatel("Nowak","123");
         System.out.println("nowak1 vs. nowak123: " + nowak2.compareTo(nowak1));

@@ -1,5 +1,7 @@
 package kolokwium2.wersjaA;
 
+import java.util.Comparator;
+
 public class Osoba implements Comparable<Osoba>{
     private final String nazwisko;
 
