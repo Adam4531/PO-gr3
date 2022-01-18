@@ -1,32 +1,99 @@
-package kolokwium2.WersjaC;
+package kolokwium22.WersjaC;
 
-import java.util.Arrays;
+import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.Objects;
 
 public class Main {
     public static void main(String[] args) {
-        Wplyw wplyw = new Wplyw(100);
-        WplywZOpisem wplyw2 = new WplywZOpisem(100,"opis");
-        System.out.println((wplyw.equals(wplyw2)));
+        ArrayList<Wplyw> wplywZOpisemArrayList = new ArrayList<>();
+        WplywZOpisem opis1 = new WplywZOpisem(100, "opis1");
+        System.out.println(opis1);
+        wplywZOpisemArrayList.add(opis1);
+        wplywZOpisemArrayList.add(new WplywZOpisem(150,"opis2"));
+        wplywZOpisemArrayList.add(new WplywZOpisem(150,"opis3"));
+        wplywZOpisemArrayList.add(new WplywZOpisem(200,"opis4"));
+        wplywZOpisemArrayList.add(new WplywZOpisem(100,"opis1"));
 
-        Wplyw[] wplywy = new Wplyw[5];
-        wplywy[0] = new Wplyw(100);
-        wplywy[1] = new Wplyw(150);
-        wplywy[2] = new Wplyw(200);
-        wplywy[3] = new Wplyw(300);
-        wplywy[4] = new Wplyw(400);
-        System.out.println("liczba wplywow: " + zliczacz(wplywy));
-
+        System.out.println((zliczacz(wplywZOpisemArrayList)));
     }
 
-    public static <T extends Iterable<T>> int zliczacz(T[] array){
-        Iterator<T> iterator = Arrays.stream(array).iterator();
-
+    public static <T extends Iterable<T>> int zliczacz(ArrayList<T> aArrayList){
+        Iterator<T> iterator = aArrayList.iterator();
         int counter = 0;
         while (iterator.hasNext()){
             iterator.next();
             counter++;
         }
         return counter;
+    }
+
+}
+
+class Wplyw implements Iterable<Wplyw>{
+    private double kwota;
+    private static double suma_wplywow;
+
+    public Wplyw(double oto_wyplyw) {
+        kwota = oto_wyplyw;
+        suma_wplywow += oto_wyplyw;
+    }
+
+    public double getKwota() {
+        return kwota;
+    }
+
+    @Override
+    public String toString() {
+        return "Wplyw{" +
+                "kwota=" + kwota +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object aO) {
+        if (this == aO) return true;
+        if (aO == null || getClass() != aO.getClass()) return false;
+        Wplyw wplyw = (Wplyw) aO;
+        return Double.compare(wplyw.kwota, kwota) == 0;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(kwota);
+    }
+
+    @Override
+    public Iterator<Wplyw> iterator() {
+        return null;
+    }
+}
+
+class WplywZOpisem extends Wplyw{
+    private String opis;
+
+    public WplywZOpisem(double oto_wyplyw, String aOpis) {
+        super(oto_wyplyw);
+        opis = aOpis;
+    }
+
+    @Override
+    public String toString() {
+        return "WplywZOpisem{" +
+                "opis='" + opis + ", kwota=" + super.getKwota() +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object aO) {
+        if (this == aO) return true;
+        if (aO == null || getClass() != aO.getClass()) return false;
+        WplywZOpisem that = (WplywZOpisem) aO;
+        return Objects.equals(opis, that.opis);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(opis);
     }
 }
