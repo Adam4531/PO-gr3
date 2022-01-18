@@ -1,12 +1,12 @@
 package kolokwium2.wersjaB;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
-        List<Figura> figuras = new ArrayList<>(Arrays.asList(new Figura(0, 0),
+        String[] string = new String[]{"jeden", "dwa"};
+
+        ArrayList<Figura> figuras = new ArrayList<>(Arrays.asList(new Figura(0, 0),
                 new Figura(0, 0), new Figura(5, 4), new Figura(4, 5)));
 
         List<Kwadrat> kwadrats = new ArrayList<>(Arrays.asList(new Kwadrat(1), new Kwadrat(1),
@@ -22,6 +22,10 @@ public class Main {
         System.out.println(compareList(figuras));
         System.out.println(figuras);
 
+        Comparator<Figura> figuraComparator = Comparator.comparing(Figura::getObwod).thenComparing(Figura::getPole);
+
+        Collections.sort(figuras, figuraComparator);
+
         System.out.println("sortowanie: " + figuras);
         figuras.sort(Figura::compareTo);
         System.out.println("po sortowaniu:" + figuras);
@@ -33,12 +37,12 @@ public class Main {
     public static <T> boolean compareList(List<T> aList) {
         for (int i = 0; i < aList.size() - 1; i++) {
             for (int j = i+1; j < aList.size(); j++) {
-                if (!aList.get(i).equals(aList.get(j))) {
-                    System.out.println(aList.get(i) + " nie jest  rowne: " + aList.get(j));
-                    return false;
+                if (aList.get(i).hashCode() ==  aList.get(j).hashCode()) {
+                    System.out.println(aList.get(i) + " jest  rowne: " + aList.get(j));
+                    return true;
                 }
             }
         }
-        return true;
+        return false;
     }
 }
