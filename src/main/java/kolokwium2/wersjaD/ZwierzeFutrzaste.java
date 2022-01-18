@@ -24,7 +24,7 @@ public class ZwierzeFutrzaste extends Zwierze implements Cloneable{
     }
 
     @Override
-    public ZwierzeFutrzaste clone() throws CloneNotSupportedException {
+    public Object clone() throws CloneNotSupportedException {
         ZwierzeFutrzaste zwierzeFutrzaste = (ZwierzeFutrzaste) super.clone();
         zwierzeFutrzaste.setColor("bardzo " + getColor());
 
@@ -34,7 +34,7 @@ public class ZwierzeFutrzaste extends Zwierze implements Cloneable{
     @Override
     public String toString() {
         if(getMasa() > 100){
-            System.out.println("Masa jest większa od 100 i wynosi ona: " + getMasa());
+            return "Masa jest większa od 100 i wynosi ona: " + getMasa();
         }
         return "kolokwium2.wersjaD.ZwierzeFutrzaste{masa=" + super.getMasa() + ", dlugosc=" + super.getDlugosc() + ", " +
                 "color='" + color + '\'' +
