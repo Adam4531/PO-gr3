@@ -1,4 +1,3 @@
-# README #
+# Object-Oriented Programming / Programowanie Obiektowe #
 
-Adam Rozwadowski,
-Object-Oriented Programming / Programowanie Obiektowe
+Adam Rozwadowski
